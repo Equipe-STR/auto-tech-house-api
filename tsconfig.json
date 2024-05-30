@@ -1,0 +1,30 @@
+{
+  "compilerOptions": {
+    "target": "es2022",
+    "module": "CommonJS",
+    "moduleResolution": "node",
+    "allowJs": false,
+    "outDir": "./build",
+    "rootDir": "./src",
+    "noImplicitAny": true,
+    "strictNullChecks": false,
+    "baseUrl": "./src",
+    "paths": {
+      "@config/*": [
+        "config/*"
+      ],
+      "@src/*": [
+        "src/*"
+      ],
+    },
+    "esModuleInterop": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true
+  },
+  "exclude": [
+    "./node_modules",
+    "./build",
+  ]
+}
