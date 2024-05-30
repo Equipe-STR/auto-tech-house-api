@@ -1,0 +1,264 @@
+*{
+    font-family: Arial, Helvetica, sans-serif;
+}
+html{
+    justify-content: center;
+    align-items: center;
+}
+button{
+    cursor: pointer;
+}
+
+body{
+    margin: 0px;
+    padding: 0 px;
+    background-color: #E5F1FF;;
+}
+#sobre{
+    display: none;
+    margin: 10px;
+}
+#login{
+    display:none;
+    margin: 10vw;
+}
+#logo{
+    margin: 10px;
+    display: flex; 
+    align-items: center; 
+}
+h1{
+    font-size: 1.3em;
+}
+nav{
+    display: flex;
+    margin: 0px;
+    justify-content: space-between;
+    background-color: #04328C;
+    height: min-content;
+    color: #FFF;
+}
+.list{
+    display: flex;
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+    align-items: center;
+}
+.linksAbas{
+    text-decoration: none;
+    margin-left: 1vw;
+    margin-right: 1vw;
+}
+.links{
+    background-color: transparent; 
+    font-size: 1.3em;
+    border-width: 0px;
+    font-weight: bold;
+    color: #FFF;
+}
+.links:hover, .links::selection{
+    text-decoration: underline;
+    color: white;
+    cursor: pointer;
+}
+#cartoes{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.row-1{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 2em;
+    width: 80%;
+}
+.row-2{
+    padding-right: 1%;
+    padding-left: 1%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 2em;
+    width: 70%;
+}
+.cartao{
+    border-radius: 13px;
+    background: #FFF;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    height: 20em;
+    margin-left: 3%;
+    margin-right: 3%;
+    margin-top: 5%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+.titulo-card{
+    display: flex;
+    background: #04328C;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    width: 100%;
+    margin-bottom: auto;
+    margin-top: 0;
+    border-radius: 13px 13px 0 0;
+    color: #FFF;
+    font-size: 12pt;
+}
+
+.sirene{
+    width: 50px;
+    height: 50px;
+    margin: 0 30px 0 30px;
+}
+.cartao>*{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: auto;
+}
+.header-cartao > *{
+    display: inline;
+    margin-right: 0.5em;
+    margin-left: 0.5em;
+}
+.on-off-button{
+    display: flex;
+    background-color: #04328C; 
+    color: white;
+    font-size: 1.5rem;
+    border-width: 0px;
+    border-radius: 5px;
+    font-weight: bold;
+    padding: 9px;
+}
+.situacao{
+    font-size: 25pt;
+    font-weight: bold;
+    margin:5px ;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    border: none;
+}
+th {
+    background-color: #04328C;
+    color: white;
+    padding: 15px;
+    text-align: center;
+    border: none;
+}
+td {
+    padding: 15px;
+    text-align: center;
+    border: none;
+}
+tr:nth-child(even) {background-color: #f2f2f2;}
+
+.cx-tabela {
+    background-color: #FFF;
+    margin: 50px 0 50px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: min-content;
+    width: 80%;
+}
+#home{
+    display: grid;
+    justify-items: center;
+}
+#abastecimento{
+    width: 60vw;
+}
+#fontes{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+#fontes>*{
+    width:50%;
+}
+
+.login-container {
+    background-color: #fff;
+    padding: 20px 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+}
+
+.login-container h2 {
+    margin-bottom: 20px;
+}
+
+.input-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+#enviar-login {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 16px;
+}
+
+#enviar-login:hover {
+    background-color: #45a049;
+}
+
+@media screen and (max-width: 522px) {
+    #logo{
+        width: max-content;
+    }
+    nav{
+        font-size: 8pt;
+    }
+    .situacao{
+        text-align: center;
+        font-size: 0.9em;
+        font-weight: bold;
+    }
+    .titulo-card{
+        font-size: 7pt;
+    }
+    #cartoes{
+        flex-direction: column;
+        align-items: center;
+    }
+    .cartao {
+        padding: 5px;
+        text-align: center;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        height: 15em;
+    }
+    .row-1{
+        width: 100%;
+    }
+}

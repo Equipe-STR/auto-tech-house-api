@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px"
+    y="0px" viewBox="0 0 24 24" enable-background="new 0 0 24 24" xml:space="preserve" width="50%" height="50%">
+    <g>
+        <path fill="#303C42"
+            d="M18,3h-2V0.5006009C16,0.2239016,15.8095703,0,15.5332031,0H8.5C8.2236328,0,8,0.2239016,8,0.5006009V3H6   C4.8974609,3,4,3.8728127,4,4.9771657v17.0204315C4,23.1019497,4.8974609,24,6,24h12c1.1025391,0,2-0.8980503,2-2.0024033   V4.9771657C20,3.8728127,19.1025391,3,18,3z" />
+        <rect x="9" y="1" fill="#F3F3F3" width="6" height="2" />
+        <path fill="#E6E6E5"
+            d="M19,22c0,0.5512695-0.4482422,1-1,1H6c-0.5517578,0-1-0.4487305-1-1V5c0-0.5512695,0.4482422-1,1-1h12   c0.5517578,0,1,0.4487305,1,1V22z" />
+        <path fill="#303C42"
+            d="M17.5,5h-11C6.2236328,5,6,5.2236328,6,5.5v16C6,21.7763672,6.2236328,22,6.5,22h11   c0.2763672,0,0.5-0.2236328,0.5-0.5v-16C18,5.2236328,17.7763672,5,17.5,5z" />
+        <rect x="7" y="6" fill="#D1DEF2" width="10" height="3" />
+        <rect x="7" y="10" fill="#95B8E1" width="10" height="3" />
+        <rect x="7" y="14" fill="#1B87C9" width="10" height="3" />
+        <rect x="7" y="18" fill="#00579B" width="10" height="3" />
+        <rect x="7" y="6" opacity="0.2" fill="#FFFFFF" width="1.5" height="3" />
+        <rect x="7" y="10" opacity="0.2" fill="#FFFFFF" width="1.5" height="3" />
+        <rect x="7" y="14" opacity="0.2" fill="#FFFFFF" width="1.5" height="3" />
+        <rect x="7" y="18" opacity="0.2" fill="#FFFFFF" width="1.5" height="3" />
+        <rect x="15.5" y="6" opacity="0.1" fill="#010101" width="1.5" height="3" />
+        <rect x="15.5" y="10" opacity="0.1" fill="#010101" width="1.5" height="3" />
+        <rect x="15.5" y="14" opacity="0.1" fill="#010101" width="1.5" height="3" />
+        <rect x="15.5" y="18" opacity="0.1" fill="#010101" width="1.5" height="3" />
+        <linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="2.3201692" y1="8.1399946" x2="22.3201637"
+            y2="17.4661446">
+            <stop offset="0" style="stop-color:#FFFFFF;stop-opacity:0.2" />
+            <stop offset="1" style="stop-color:#FFFFFF;stop-opacity:0" />
+        </linearGradient>
+        <path fill="url(#SVGID_1_)"
+            d="M18,3h-2V0.5006009C16,0.2239016,15.8095703,0,15.5332031,0H8.5   C8.2236328,0,8,0.2239016,8,0.5006009V3H6C4.8974609,3,4,3.8728127,4,4.9771657v17.0204315C4,23.1019497,4.8974609,24,6,24h12   c1.1025391,0,2-0.8980503,2-2.0024033V4.9771657C20,3.8728127,19.1025391,3,18,3z" />
+    </g>
+    <g>
+    </g>
+    <g>
+    </g>
+    <g>
+    </g>
+    <g>
+    </g>
+    <g>
+    </g>
+    <g>
+    </g>
+    <g>
+    </g>
+    <g>
+    </g>
+</svg>
