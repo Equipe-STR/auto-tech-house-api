@@ -22,6 +22,12 @@ body{
     display:none;
     margin: 10vw;
 }
+
+#container-login{
+    width: 100vw;
+    max-width: 400px;
+}
+
 #logo{
     margin: 10px;
     display: flex; 

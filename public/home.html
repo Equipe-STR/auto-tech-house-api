@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+    <title>Monitoramento</title>
+</head>
+<body>
+    <nav>
+        <div id="logo">
+            <object data="assets/logo.svg" width="40" height="40"></object>
+            <h1 style=" margin-left: 15px;">SMART HOUSE</h1>
+        </div>
+        <ul class="list">
+            <li class="linksAbas">
+                <button class="links" id="botao-home">HOME</button>        
+            </li>
+            <li class="linksAbas">
+                <button class="links" id="botao-sobre">SOBRE</button>
+            </li>
+        </ul>
+    </nav>
+    <div id="home">
+        <div id="cartoes">
+            <div class="row-1">
+                <div class="cartao" id="alarme">
+                    <div class="titulo-card">
+                        <h2>ALARME</h2>
+                    </div>
+                    <div>
+                        <div>
+                            <div class="situacao" id="alarme-texto">Sem detecção</div>
+                        </div>
+                        <div>
+                            <object id="sirene-desativada" style="width: 50px; margin:10px ;" type="image/svg+xml" data="assets/sirene-desativada.svg" width="60" height="60"></object>
+                            <object id="sirene-ativada" style="display: none;width: 50px; margin:10px ;" type="image/svg+xml" data="assets/sirene-ativada.svg" width="60" height="60"></object>
+                        </div>
+                    </div>
+                    <div>
+                        <button id="alarme-button" class="on-off-button">LIGADO</button>
+                    </div>
+                </div>
+                <div class="cartao" id="incendio">
+                    <div class="titulo-card">
+                        <h2>INCÊNDIO</h2>
+                    </div>
+                    <div>
+                        <div>
+                            <div class="situacao" id="incendio-texto">Sem detecção</div>
+                        </div>
+                        <div>
+                            <object id="fogo-desativado" type="image/svg+xml" data="assets/fogo-desativado.svg" width="60" height="60"></object>
+                            <object id="fogo-ativado" style="display: none;"  type="image/svg+xml" data="assets/fogo-ativado.svg" width="60" height="60"></object>
+                        </div>
+                    </div>
+                    <div>
+                        <button id="incendio-button" class="on-off-button">LIGADO</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row-2">
+            <div class="cartao" id="abastecimento">
+                <div class="titulo-card">
+                    <h2>SISTEMA DE ABASTECIMENTO</h2>
+                </div>
+                <div style="display: flex; flex-direction: column;">
+                    <div id="status-baterias" style="width: 100%; display: flex; justify-content: space-around;">
+                        <h2 class="situacao" style="margin: 10px ;">Fonte Primária</h2>
+                        <h2 class="situacao" style="margin: 10px ;">Fonte Secundária</h2>
+                    </div>
+                    <div id="fontes">
+                        <object id="primaria-ativada" data="assets/primaria-ativada.svg" width="60" height="60"></object>
+                        <object id="primaria-desativada" style="display:none;" data="assets/primaria-desativada.svg" width="60" height="60"></object>
+                        <object id="secundaria-ativada" style="display:none ;" data="assets/secundaria-ativada.svg" width="60" height="60"></object>
+                        <object id="secundaria-desativada" data="assets/secundaria-desativada.svg" width="60" height="60"></object>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <button id="limpar-historico" class="on-off-button">LIMPAR HISTORICO</button>
+        </div>
+        <div class="cx-tabela">
+            <table id="historico">
+                <tr>
+                    <th>Horário</th>
+                    <th>Evento</th>
+                    <th>Data</th>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div id="sobre">
+        <h2>SOBRE</h2>
+        <p>Site feito na disciplina de Software em Tempo Real (STR) usando um ESP32 e Web Socket para a comunicação cliente-servidor</p>
+    </div>
+</body>
+<script src="script.js"></script>
+</html>
