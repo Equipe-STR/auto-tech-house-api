@@ -1,4 +1,5 @@
 import { io } from '../../app';
+import 'express-async-errors';
 
 interface RoomUser {
   socket_id: string;

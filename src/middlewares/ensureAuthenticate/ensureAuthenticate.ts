@@ -9,10 +9,10 @@ export function ensureAuthenticate(request: Request, response: Response, next: N
             message: 'Token required',
         });
     }
+    console
     const token = authHeader.split(' ')[1];
     try {
-        const {sub} = verify(token, 'chavesecreta');
-        request.userId = sub as string;
+        const {sub} = verify(token, 'secretIOT');
         
         next();
     } catch (error) {
