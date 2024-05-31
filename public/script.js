@@ -90,7 +90,6 @@ function clickLogin(e) {
 }
 document.getElementById("botao-home").addEventListener("click", clickHome);
 document.getElementById("botao-sobre").addEventListener("click", clickSobre);
-document.getElementById("botao-login").addEventListener("click", clickLogin);
 
 function addCard(nomeEvento) {
     // Seleciona a tabela
@@ -109,6 +108,7 @@ function addCard(nomeEvento) {
 }
 var alarmeIntervalId;
 function ativarAlarme(){
+    console.log('passou aqui')
     addCard("Alarme iniciado")
     const elemento = document.getElementById("alarme-texto")
     elemento.innerHTML = "ALARME ATIVADO"
@@ -175,3 +175,18 @@ function desativarIncendio(){
     clearInterval(incendioIntervalId);
     addCard("Incendio terminado")
 }
+
+const socket = new WebSocket('ws://localhost:8080/');
+
+socket.onopen = () => {
+  console.log('Conexão estabelecida.');
+  socket.send('Olá, servidor!');
+};
+
+socket.onmessage = (event) => {
+  ativarAlarme()
+};
+
+socket.onclose = () => {
+  console.log('Conexão fechada.');
+};
