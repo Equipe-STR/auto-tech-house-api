@@ -2,7 +2,7 @@ import 'dotenv/config'
 
 
 import { serverHttp } from './app';
-import './socket/sensorsReading/WebSocketConnection';
+import './socket/webSocketConnection';
 import 'express-async-errors';
 const PORT = process.env.PORT || 3333;
 

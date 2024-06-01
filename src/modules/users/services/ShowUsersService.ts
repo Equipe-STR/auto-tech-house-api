@@ -1,5 +1,5 @@
 import { User } from "@prisma/client";
-import { AppError } from "./../../../middlewares/errors/AppError";
+import { AppError } from "../../../middlewares/errors/AppError";
 import { prismaC } from "../../../utils/prisma";
 
 

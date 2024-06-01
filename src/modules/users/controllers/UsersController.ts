@@ -59,14 +59,4 @@ export class UsersController {
         const users = await deleteUsersService.execute(id)
         response = response.status(200).json({});
     }
-     
-    /*private async verificaUser(userID){
-        const user = await prismaC.user.findUnique({
-            "where":{userID}
-        });
-        if (!user){
-            throw new AppError("User not Found", 404);
-        }
-        return user;
-    }*/
 }

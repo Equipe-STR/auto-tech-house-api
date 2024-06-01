@@ -190,3 +190,38 @@ socket.onmessage = (event) => {
 socket.onclose = () => {
   console.log('Conexão fechada.');
 };
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    function carregarDados() {
+        fetch('http://localhost:8080/sensorsReading/', {
+            method: 'GET',
+            headers: {
+                'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MTcyNDQ5MzgsImV4cCI6MTcxNzMzMTMzOCwic3ViIjoiM2Q2YTk5NzYtN2RlNC00NWY4LWJkOTYtZDhjMTVlOTBmOTc3In0.jKGpzK2JA-2uYk3afEYtMdAvK9MV2DxHZelIwPV5IuQ'
+            }})
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+                const table = document.querySelector('table');
+                data.forEach(item => {
+                    const formattedDate = new Date(item.date).toLocaleString('pt-BR', {
+                        day: '2-digit',
+                        month: '2-digit',
+                        year: 'numeric',
+                        hour: '2-digit',
+                        minute: '2-digit',
+                        second: '2-digit'
+                    });
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td>${item.name}</td>
+                        <td>${item.read}</td>
+                        <td>${formattedDate}</td>
+                    `;
+                    table.appendChild(row);
+                });
+            })
+            .catch(error => console.error('Erro ao carregar dados:', error));
+    }
+    carregarDados();
+});

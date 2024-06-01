@@ -1,4 +1,4 @@
-import { wss } from '../../app';
+import { wss } from '../app';
 import 'express-async-errors';
 import WebSocket, { WebSocketServer, WebSocket as wsType } from 'ws';
 
