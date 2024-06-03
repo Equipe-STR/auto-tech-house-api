@@ -6,8 +6,8 @@ import { ensureAuthenticate } from "../../../middlewares/ensureAuthenticate/ensu
 const sensorReadingRoutes = Router();
 const sensorsReadingController = new SensorsReadingController();
 
-sensorReadingRoutes.post('/', ensureAuthenticate, sensorsReadingController.create);
+sensorReadingRoutes.post('/', ensureAuthenticate,sensorsReadingController.create);
 sensorReadingRoutes.get('/', ensureAuthenticate, sensorsReadingController.list);
-sensorReadingRoutes.delete('/:id', ensureAuthenticate, sensorsReadingController.delete);
+sensorReadingRoutes.delete('/', ensureAuthenticate, sensorsReadingController.delete);
 
 export default sensorReadingRoutes;

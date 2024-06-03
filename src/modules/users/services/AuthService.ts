@@ -24,7 +24,7 @@ export class AuthService {
 
         const token = sign({}, 'secretIOT', {
             subject: user.id,
-            expiresIn: '1d',
+            expiresIn: '30d',
         });
         return token;
     }

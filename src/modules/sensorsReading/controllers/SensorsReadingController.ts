@@ -27,7 +27,7 @@ export class SensorsReadingController {
     public async delete(request: Request, response: Response){
         const id = request.params.id;
         const deleteUsersService = new DeleteSensoreReadingService()
-        const users = await deleteUsersService.execute(id)
+        const users = await deleteUsersService.execute()
         response = response.status(200).json({});
     }
 }

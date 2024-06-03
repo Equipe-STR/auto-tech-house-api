@@ -1,16 +1,3 @@
-var botaoLimparHis = document.querySelector("#limpar-historico")
-botaoLimparHis.addEventListener('click', function(e){
-    var table = document.querySelector('#historico')
-    var tam = ((table.rows.length)-1)
-    e.preventDefault();
-    
-    while (tam > 0) {
-        table.deleteRow(tam);
-        tam--;
-    }
-})
-
-
 const primariaAtivada =document.querySelector('#primaria-ativada');
 const primariaDesativada = document.querySelector('#primaria-desativada');
 const secundariaAtivada = document.querySelector('#secundaria-ativada');
@@ -18,8 +5,6 @@ const secundariaDesativada = document.querySelector('#secundaria-desativada');
 const statusBaterias = document.querySelector('#status-baterias').children;
 statusBaterias[0].style.color = "green";
 statusBaterias[1].style.color = "black";
-
-function n(){}
 
 function alternarBateriaPrimaria() {
     secundariaAtivada.style.display = "none";
@@ -40,53 +25,106 @@ function alternarBateriaSecundaria(){
     statusBaterias[1].style.color = "green";
     statusBaterias[0].style.color = "black";
 }
+
+function configurarFonte(fonteUsada) {
+    if (fonteUsada==1) {
+        alternarBateriaPrimaria()
+    }
+    else{
+        alternarBateriaSecundaria()
+    }
+}
+
+function configurarConexaoESP(ativarConexao) {
+    function ativarConexaoESP(){
+        const labelESP = document.querySelector('#statusESP')
+        labelESP.innerHTML = "ESP CONECTADO"
+        labelESP.style.backgroundColor = "#04328C";
+    }
+    
+    function desativarConexaoESP(){
+        const labelESP = document.querySelector('#statusESP')
+        labelESP.innerHTML = "ESP DESCONECTADO"
+        labelESP.style.backgroundColor = "#FD002E";
+    }
+    if (ativarConexao) {
+        ativarConexaoESP()
+    }else{
+        desativarConexaoESP()
+    }
+}
+
 var incendioFuncionando = true
 const botaoIncedio = document.querySelector("#incendio-button");
 botaoIncedio.addEventListener("click", function (e){
     e.preventDefault();
     if (incendioFuncionando){
+        desligarIncendio()
+    }
+    else{
+        ligarIncendio()
+    }
+})
+
+function configurarFuncionamentoIncendio(incendioAtivarBool) {
+    function desligarFuncionamentoIncendio(){
         incendioFuncionando = false
         botaoIncedio.innerHTML = "DESLIGADO";
         botaoIncedio.style.backgroundColor = "#FD002E";
     }
-    else{
+    function ligarFuncionamentoIncendio(){
         incendioFuncionando = true
         botaoIncedio.innerHTML = "LIGADO";
         botaoIncedio.style.backgroundColor = "#04328C";
     }
-})
+    if (incendioAtivarBool) {
+        ligarFuncionamentoIncendio()
+    }
+    else{
+        desligarFuncionamentoIncendio()
+    }
+}
+
 var alarmeFuncionando = true
 const botaoAlarme = document.querySelector("#alarme-button");
 botaoAlarme.addEventListener("click", function (e){
     e.preventDefault();
     if (alarmeFuncionando){
+        desligarAlarme()
+    }
+    else{
+        ligarAlarme()
+    }
+})
+
+function configurarFuncionamentoAlarme(alarmeAtivarBool) {
+    function desligarFuncionamentoAlarme(){
         alarmeFuncionando = false
         botaoAlarme.innerHTML = "DESLIGADO";
         botaoAlarme.style.backgroundColor = "#FD002E";
     }
-    else{
+    function ligarFuncionamentoAlarme(){
         alarmeFuncionando = true
         botaoAlarme.innerHTML = "LIGADO";
         botaoAlarme.style.backgroundColor = "#04328C";
     }
-})
+    if (alarmeAtivarBool) {
+        ligarFuncionamentoAlarme()
+    }
+    else{
+        desligarFuncionamentoAlarme()
+    }
+}
+
 function clickHome(e) {
     e.preventDefault();
     document.getElementById("home").style.display = "grid";
     document.getElementById("sobre").style.display = "none";
-    document.getElementById("login").style.display = "none";
 }
 function clickSobre(e) {
     e.preventDefault();
     document.getElementById("home").style.display = "none";
     document.getElementById("sobre").style.display = "block";
-    document.getElementById("login").style.display = "none";
-}
-function clickLogin(e) {
-    e.preventDefault();
-    document.getElementById("home").style.display = "none";
-    document.getElementById("sobre").style.display = "none";
-    document.getElementById("login").style.display = "block";
 }
 document.getElementById("botao-home").addEventListener("click", clickHome);
 document.getElementById("botao-sobre").addEventListener("click", clickSobre);
@@ -106,13 +144,14 @@ function addCard(nomeEvento) {
     evento.innerHTML = nomeEvento;
     data.innerHTML =  now.toLocaleDateString();
 }
-var alarmeIntervalId;
+var alarmeIntervalId = -1;
 function ativarAlarme(){
-    console.log('passou aqui')
-    addCard("Alarme iniciado")
     const elemento = document.getElementById("alarme-texto")
     elemento.innerHTML = "ALARME ATIVADO"
-    alarmeIntervalId = setInterval(alterarCorAlarme, 100);
+    if (alarmeIntervalId==-1) {
+        alarmeIntervalId = setInterval(alterarCorAlarme, 100);
+    }
+    carregarDados()
 }
 var alarmeColorido = false
 function alterarCorAlarme(){
@@ -131,12 +170,34 @@ function alterarCorAlarme(){
     }
 }
 
-var incendioIntervalId;
+function desativarAlarme(){
+    const elemento = document.getElementById("alarme-texto")
+    clearInterval(alarmeIntervalId);
+    alarmeIntervalId = -1
+    document.getElementById("sirene-ativada").style.display = 'none'
+    document.getElementById("sirene-desativada").style.display = 'block'
+    elemento.style.color = "#000000"
+    elemento.innerHTML = "Sem detecção"
+    carregarDados()
+}
+
+function configurarAtivacaoSireneAlarme(ligarSireneAlarmeBool) {
+    if (ligarSireneAlarmeBool) {
+        ativarAlarme()
+    }
+    else{
+        desativarAlarme()
+    }
+}
+
+var incendioIntervalId=-1;
 function ativarIncendio(){
-    addCard("Incendio iniciado")
     const elemento = document.getElementById("incendio-texto")
     elemento.innerHTML = "INCÊNDIO DETECTADO"
-    incendioIntervalId = setInterval(alterarCorIncendio, 100);
+    if (incendioIntervalId==-1) {
+        incendioIntervalId = setInterval(alterarCorIncendio, 100);
+    }
+    carregarDados()
 }
 
 var incendioColorido = false
@@ -156,16 +217,6 @@ function alterarCorIncendio(){
     }
 }
 
-function desativarAlarme(){
-    const elemento = document.getElementById("alarme-texto")
-    clearInterval(alarmeIntervalId);
-    document.getElementById("sirene-ativada").style.display = 'none'
-    document.getElementById("sirene-desativada").style.display = 'block'
-    elemento.style.color = "#000000"
-    elemento.innerHTML = "Sem detecção"
-    addCard("Alarme terminado")
-}
-
 function desativarIncendio(){
     const elemento = document.getElementById("incendio-texto")
     document.getElementById("fogo-ativado").style.display = 'none'
@@ -173,55 +224,15 @@ function desativarIncendio(){
     elemento.style.color = "#000000"
     elemento.innerHTML = "Sem detecção"
     clearInterval(incendioIntervalId);
-    addCard("Incendio terminado")
+    incendioIntervalId = -1
+    carregarDados()
 }
 
-const socket = new WebSocket('ws://localhost:8080/');
-
-socket.onopen = () => {
-  console.log('Conexão estabelecida.');
-  socket.send('Olá, servidor!');
-};
-
-socket.onmessage = (event) => {
-  ativarAlarme()
-};
-
-socket.onclose = () => {
-  console.log('Conexão fechada.');
-};
-
-
-document.addEventListener('DOMContentLoaded', function() {
-    function carregarDados() {
-        fetch('http://localhost:8080/sensorsReading/', {
-            method: 'GET',
-            headers: {
-                'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MTcyNDQ5MzgsImV4cCI6MTcxNzMzMTMzOCwic3ViIjoiM2Q2YTk5NzYtN2RlNC00NWY4LWJkOTYtZDhjMTVlOTBmOTc3In0.jKGpzK2JA-2uYk3afEYtMdAvK9MV2DxHZelIwPV5IuQ'
-            }})
-            .then(response => response.json())
-            .then(data => {
-                console.log(data);
-                const table = document.querySelector('table');
-                data.forEach(item => {
-                    const formattedDate = new Date(item.date).toLocaleString('pt-BR', {
-                        day: '2-digit',
-                        month: '2-digit',
-                        year: 'numeric',
-                        hour: '2-digit',
-                        minute: '2-digit',
-                        second: '2-digit'
-                    });
-                    const row = document.createElement('tr');
-                    row.innerHTML = `
-                        <td>${item.name}</td>
-                        <td>${item.read}</td>
-                        <td>${formattedDate}</td>
-                    `;
-                    table.appendChild(row);
-                });
-            })
-            .catch(error => console.error('Erro ao carregar dados:', error));
+function configurarAtivacaoSireneIncendio(ligarSireneIncendioBool) {
+    if (ligarSireneIncendioBool) {
+        ativarIncendio()
     }
-    carregarDados();
-});
+    else{
+        desativarIncendio()
+    }
+}

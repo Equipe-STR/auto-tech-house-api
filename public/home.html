@@ -23,6 +23,7 @@
         </ul>
     </nav>
     <div id="home">
+        <div id="statusESP">ESP DESCONECTADO</div>
         <div id="cartoes">
             <div class="row-1">
                 <div class="cartao" id="alarme">
@@ -86,17 +87,20 @@
         <div class="cx-tabela">
             <table id="historico">
                 <tr>
-                    <th>Horário</th>
-                    <th>Evento</th>
                     <th>Data</th>
+                    <th>Nome</th>
+                    <th>Valor</th>
                 </tr>
             </table>
         </div>
     </div>
     <div id="sobre">
         <h2>SOBRE</h2>
-        <p>Site feito na disciplina de Software em Tempo Real (STR) usando um ESP32 e Web Socket para a comunicação cliente-servidor</p>
+        <p>Site feito na disciplina de IOT com o professor Wendley</p>
     </div>
 </body>
+<script src="config.js"></script>
+<script src="historico.js"></script>
 <script src="script.js"></script>
+<script src="websocket.js"></script>
 </html>
