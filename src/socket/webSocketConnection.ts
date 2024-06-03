@@ -29,39 +29,57 @@ function enviarEmail(texto:string){
     .catch(error => console.error(`Erro ao enviar e-mail: ${error}`));
 }
 
+function trocaAtivacao(parsedMessage:Message, ws: wsType){
+    if ('alarmeFuncionando' in parsedMessage) {
+        status['alarmeFuncionando'] = parsedMessage['alarmeFuncionando']
+        console.log(JSON.stringify(status))
+        espalharParaTodosClientes(ws, JSON.stringify(status))
+    }
+    if ('incendioFuncionando' in parsedMessage) {
+        status['incendioFuncionando'] = parsedMessage['incendioFuncionando']
+        console.log(JSON.stringify(status))
+        espalharParaTodosClientes(ws, JSON.stringify(status))
+    }
+    return
+}
+
+function conexaoESP(parsedMessage:Message, ws: wsType){
+    status['espConectado'] = true
+    if ('alarme' in parsedMessage) {
+        if (parsedMessage['alarme'] && status['alarme']!=parsedMessage['alarme']) {
+            enviarEmail("ALARME FOI DETECTADO")
+            alarmeAtivadoBanco()
+        }
+        if (!parsedMessage['alarme'] && status['alarme']!=parsedMessage['alarme']) {
+            alarmeDesativadoBanco()
+        }
+        status['alarme'] = parsedMessage['alarme']
+    }
+    if ('incendio' in parsedMessage) {
+        if (parsedMessage['incendio'] && status['incendio']!=parsedMessage['incendio']) {
+            enviarEmail("INCENDIO FOI DETECTADO")
+            incendioAtivadoBanco()
+        }
+        if (parsedMessage['incendio'] && status['incendio']!=parsedMessage['incendio']) {
+            enviarEmail("INCENDIO FOI DETECTADO")
+            incendioDesativadoBanco()
+        }
+        status['incendio'] = parsedMessage['incendio']
+    }
+    if ('fonte' in parsedMessage) {
+        status['fonte'] = parsedMessage['fonte']
+    }
+    espalharParaTodosClientes(ws, JSON.stringify(status))
+}
+
 wss.on('connection', (ws: wsType) => {
     var conectionESP = false
     console.log('Cliente conectado via WebSocket');
     ws.on('message', (message: string) => {   
         const parsedMessage:Message = JSON.parse(message.toString());
         if (parsedMessage['status']=='conexaoESP') {
-            status['espConectado'] = true
+            conexaoESP(parsedMessage, ws)
             conectionESP = true
-            if ('alarme' in parsedMessage) {
-                if (parsedMessage['alarme'] && status['alarme']!=parsedMessage['alarme']) {
-                    enviarEmail("ALARME FOI DETECTADO")
-                    alarmeAtivadoBanco()
-                }
-                if (!parsedMessage['alarme'] && status['alarme']!=parsedMessage['alarme']) {
-                    alarmeDesativadoBanco()
-                }
-                status['alarme'] = parsedMessage['alarme']
-            }
-            if ('incendio' in parsedMessage) {
-                if (parsedMessage['incendio'] && status['incendio']!=parsedMessage['incendio']) {
-                    enviarEmail("INCENDIO FOI DETECTADO")
-                    incendioAtivadoBanco()
-                }
-                if (parsedMessage['incendio'] && status['incendio']!=parsedMessage['incendio']) {
-                    enviarEmail("INCENDIO FOI DETECTADO")
-                    incendioDesativadoBanco()
-                }
-                status['incendio'] = parsedMessage['incendio']
-            }
-            if ('fonte' in parsedMessage) {
-                status['fonte'] = parsedMessage['fonte']
-            }
-            espalharParaTodosClientes(ws, JSON.stringify(status))
         }
         if (parsedMessage['status']=='conexao') {
             console.log(JSON.stringify(status))
@@ -69,17 +87,7 @@ wss.on('connection', (ws: wsType) => {
             return
         }
         if (parsedMessage['status']=='trocaAtivação') {
-            if ('alarmeFuncionando' in parsedMessage) {
-                status['alarmeFuncionando'] = parsedMessage['alarmeFuncionando']
-                console.log(JSON.stringify(status))
-                espalharParaTodosClientes(ws, JSON.stringify(status))
-            }
-            if ('incendioFuncionando' in parsedMessage) {
-                status['incendioFuncionando'] = parsedMessage['incendioFuncionando']
-                console.log(JSON.stringify(status))
-                espalharParaTodosClientes(ws, JSON.stringify(status))
-            }
-            return
+            trocaAtivacao(parsedMessage, ws)
         }
     });
     
