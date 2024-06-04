@@ -4,7 +4,7 @@ document.getElementById('login-form').addEventListener('submit', function (event
     const password = document.getElementById('password').value;
 
     // Fazer uma requisição assíncrona para verificar as credenciais
-    fetch('/users/login', {
+    fetch('/auth', {
         method: 'POST',
         headers: {
         'Content-Type': 'application/json',

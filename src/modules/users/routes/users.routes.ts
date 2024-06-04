@@ -6,9 +6,7 @@ import { ensureAuthenticate } from "../../../middlewares/ensureAuthenticate/ensu
 
 const usersRouter = Router();
 const usersController = new UsersController();
-const authController = new AuthenticateController();
 
-usersRouter.post('/login', authController.create);
 usersRouter.post('/', ensureAuthenticate, usersController.create);
 usersRouter.get('/', ensureAuthenticate, usersController.list);
 usersRouter.get('/:id', ensureAuthenticate, usersController.list);
