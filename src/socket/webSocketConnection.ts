@@ -76,18 +76,23 @@ wss.on('connection', (ws: wsType) => {
     var conectionESP = false
     console.log('Cliente conectado via WebSocket');
     ws.on('message', (message: string) => {   
-        const parsedMessage:Message = JSON.parse(message.toString());
-        if (parsedMessage['status']=='conexaoESP') {
-            conexaoESP(parsedMessage, ws)
-            conectionESP = true
+        try {
+            const parsedMessage:Message = JSON.parse(message.toString());
+            if (parsedMessage['status']=='conexaoESP') {
+                conexaoESP(parsedMessage, ws)
+                conectionESP = true
+            }
+            if (parsedMessage['status']=='conexao') {
+                espalharParaTodosClientes(ws, JSON.stringify(status))
+                return
+            }
+            if (parsedMessage['status']=='trocaAtivação') {
+                trocaAtivacao(parsedMessage, ws)
+            }
         }
-        if (parsedMessage['status']=='conexao') {
-            console.log(JSON.stringify(status))
-            espalharParaTodosClientes(ws, JSON.stringify(status))
-            return
-        }
-        if (parsedMessage['status']=='trocaAtivação') {
-            trocaAtivacao(parsedMessage, ws)
+        catch (error){
+            console.log(`Erro ao processar a mensagem: ${error}`);
+            ws.send(JSON.stringify({ error: 'Formato de mensagem inválido' }));
         }
     });
     
