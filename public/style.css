@@ -38,6 +38,7 @@ body{
 }
 h1{
     font-size: 1.3em;
+    color: white;
 }
 nav{
     display: flex;
@@ -109,6 +110,14 @@ nav{
     margin: 0px;
     margin-top: 10px;
     padding: 10px;
+}
+.logo-button{
+    background: none; /* Remover plano de fundo */
+    border: none; /* Remover borda */
+    padding: 0; /* Remover preenchimento */
+    cursor: pointer; /* Manter cursor de ponteiro */
+    display: flex; /* Permitir layout flexbox */
+    align-items: center; /* Alinhar verticalmente no centro */
 }
 #statusESP{
     display: flex;
