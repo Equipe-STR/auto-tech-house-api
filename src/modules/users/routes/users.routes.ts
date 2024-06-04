@@ -9,7 +9,7 @@ const usersController = new UsersController();
 
 usersRouter.post('/', ensureAuthenticate, usersController.create);
 usersRouter.get('/', ensureAuthenticate, usersController.list);
-usersRouter.get('/:id', ensureAuthenticate, usersController.list);
+usersRouter.get('/:id', ensureAuthenticate, usersController.show);
 usersRouter.put('/:id', ensureAuthenticate, usersController.update);
 usersRouter.delete('/:id', ensureAuthenticate, usersController.delete);
 
