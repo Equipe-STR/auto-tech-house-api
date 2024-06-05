@@ -59,7 +59,7 @@ Quer usar? Ok, então basta seguir estas etapas simples:
 
 ```bash
 # Clone o repositório
-git clone https://github.com/seu-usuario/seu-repositorio.git
+https://github.com/Equipe-STR/auto-tech-house-api.git
 
 # Abra a pasta no Visual Studio Code
 cd seu-repositorio
