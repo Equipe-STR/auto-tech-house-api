@@ -37,10 +37,15 @@ Para rodar esse projeto na sua máquina é necessário ter o Node Js instalado n
 
 ## Endpoints
 Esses são todos os endpoints do sistema:
+
 / Requisição http do tipo get ->Retorna a interface.
+
 /users Requisição http do tipo get,post,put e delete(privada) -> Crud de usários.
+
 /auth Requisição http do tipo get -> Login.
+
 /sensorsReading Requisição http do tipo get,post e delete(privada) -> Acesso a tabela de leitura de sensores.
+
 / Requisição web socket -> conexão client <--> servidor em tempo real.
 
 
