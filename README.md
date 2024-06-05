@@ -32,7 +32,7 @@ Este projeto foi construído em utilizando as seguintes tecnologias:
      
 
 
-## requisitos
+## Requisitos
 Para rodar esse projeto na sua máquina é necessário ter o Node Js instalado na sua maquina. A versão utilizada foi a 20.11.1.
 
 ## Endpoints
