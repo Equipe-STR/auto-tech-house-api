@@ -1,5 +1,4 @@
-
-const socket = new WebSocket('ws://localhost:8080/');
+const socket = new WebSocket(`ws://${config.BASE_URL}/`);
 socket.onopen = () => {
   console.log('Conexão estabelecida.');
   socket.send('{"status": "conexao"}');

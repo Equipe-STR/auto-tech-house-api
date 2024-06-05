@@ -1,5 +1,5 @@
 function carregarDados() {
-    fetch(`${config.BASE_URL}/sensorsReading/`, {
+    fetch(`http://${config.BASE_URL}/sensorsReading/`, {
         method: 'GET',
         headers: {
             'Authorization': "Bearer "+localStorage.getItem('token')
@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 var botaoLimparHis = document.querySelector("#limpar-historico")
 botaoLimparHis.addEventListener('click', function(e){
-    fetch(`${config.BASE_URL}/sensorsReading/`, {
+    fetch(`http://${config.BASE_URL}/sensorsReading/`, {
         method: 'DELETE',
         headers: {
             'Authorization': "Bearer "+localStorage.getItem('token')
