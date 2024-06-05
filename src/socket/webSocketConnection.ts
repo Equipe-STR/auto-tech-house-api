@@ -44,6 +44,7 @@ function trocaAtivacao(parsedMessage:Message, ws: wsType){
 }
 
 function conexaoESP(parsedMessage:Message, ws: wsType){
+    console.log("ESP CONECTADO");
     status['espConectado'] = true
     if ('alarme' in parsedMessage) {
         if (parsedMessage['alarme'] && status['alarme']!=parsedMessage['alarme']) {
