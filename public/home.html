@@ -10,9 +10,9 @@
 <body>
     <nav>
         <div id="logo">
-            <button id="botao-home" class="logo-button">
+            <button id="botao-logo-home" class="logo-button">
                 <object data="assets/logo.svg" width="40" height="40"></object>
-                <h1 style=" margin-left: 15px;">SMART HOUSE</h1>
+                <h1 style=" margin-left: 15px;">AUTO TECH HOUSE</h1>
             </button>
         </div>
         <ul class="list">
@@ -20,7 +20,7 @@
                 <button class="links" id="botao-home">HOME</button>        
             </li>
             <li class="linksAbas">
-                <button class="links" id="botao-sobre">SOBRE</button>
+                <button class="links" id="botao-sobre">INFORMAÇÕES</button>
             </li>
         </ul>
     </nav>
@@ -97,15 +97,15 @@
         </div>
     </div>
     <div id="sobre">
-        <h2>SOBRE</h2>
+        <h2 class="description-sobre">Descrição</h2>
         <p>Este site foi desenvolvido na disciplina de IoT ministrada pelo professor Wendley. O objetivo é demonstrar a integração de sensores com o ESP32 e a comunicação em tempo real usando WebSockets.</p>
         
-        <h3>Funções:</h3>
+        <h3 class="title-sobre">Funções:</h3>
         <p><strong>Alarme:</strong> Ativado conforme o sensor de presença no ESP32.</p>
         <p><strong>Incêndio:</strong> Detectado conforme o sensor de chama.</p>
         <p><strong>Exibição de Troca de Fonte:</strong> Mostra a troca da fonte primária para a secundária conforme o uso.</p>
         
-        <h3>Funcionamento do ESP32 e WebSocket</h3>
+        <h3 class="title-sobre">Funcionamento do ESP32 e WebSocket</h3>
         <p>O <strong>ESP32</strong> é um microcontrolador de baixo custo e baixo consumo de energia, com Wi-Fi e Bluetooth integrados. Ele é amplamente utilizado em projetos de Internet das Coisas (IoT) devido à sua versatilidade e desempenho. O ESP32 pode ser programado usando várias plataformas, como Arduino IDE, PlatformIO, e outros SDKs fornecidos pelo fabricante.</p>
         <p>Um <strong>WebSocket</strong> é um protocolo de comunicação que permite a interação em tempo real entre um navegador e um servidor. Diferente do protocolo HTTP tradicional, onde o cliente solicita informações e o servidor responde, o WebSocket permite uma conexão bidirecional constante, signicando que o servidor pode enviar atualizações para o cliente assim que elas estiverem disponíveis, sem que o cliente precise solicitar essas informações repetidamente.</p>
         <p>No contexto do nosso projeto, o ESP32 se comunica com o navegador usando WebSockets. Quando um sensor no ESP32 detecta movimento ou fogo, ele envia uma mensagem através do WebSocket para o navegador, que então exibe um alarme ou aviso, além de enviar um email alertando a mudança. Da mesma forma, se houver uma troca de fonte de energia, essa informação é enviada instantaneamente para ser exibida no navegador.</p>

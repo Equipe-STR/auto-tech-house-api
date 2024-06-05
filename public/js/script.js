@@ -1,13 +1,16 @@
 function clickHome(e) {
     e.preventDefault();
-    document.getElementById("home").style.display = "grid";
+    console.log("aqui")
     document.getElementById("sobre").style.display = "none";
+    document.getElementById("home").style.display = "grid";
 }
 function clickSobre(e) {
     e.preventDefault();
     document.getElementById("home").style.display = "none";
     document.getElementById("sobre").style.display = "block";
 }
+
+document.getElementById("botao-logo-home").addEventListener("click", clickHome);
 document.getElementById("botao-home").addEventListener("click", clickHome);
 document.getElementById("botao-sobre").addEventListener("click", clickSobre);
 
