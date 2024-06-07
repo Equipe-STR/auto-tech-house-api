@@ -30,7 +30,7 @@ function carregarDados() {
                 table.appendChild(row);
             });
         })
-        .catch(error => alert("Primeiro faça o login")
+        .catch(error => console.log("Primeiro faça o login")
     );
 }
 

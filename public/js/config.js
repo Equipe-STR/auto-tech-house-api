@@ -1,3 +1,3 @@
 const config = {
-    BASE_URL: 'localhost:8080'
+    BASE_URL: '192.168.0.106:8080'
 };
