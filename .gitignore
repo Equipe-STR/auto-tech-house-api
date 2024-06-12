@@ -1,5 +1,31 @@
-node_modules
-# Keep environment variables out of version control
+# Node modules
+node_modules/
+
+# Build output
+dist/
+
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# Dependency directories
+jspm_packages/
+
+# Optional npm cache directory
+.npm
+
+# Optional eslint cache
+.eslintcache
+
+# Output of 'npm pack'
+*.tgz
+
+# Optional REPL history
+.node_repl_history
+
+# dotenv environment variables file
 .env
-.vercel
-.build
+
+# MacOS files
+.DS_Store
