@@ -7,7 +7,7 @@ const sensorReadingRoutes = Router();
 const sensorsReadingController = new SensorsReadingController();
 
 sensorReadingRoutes.post('/', ensureAuthenticate,sensorsReadingController.create);
-sensorReadingRoutes.get('/', ensureAuthenticate, sensorsReadingController.list);
+sensorReadingRoutes.get('/', sensorsReadingController.list);
 sensorReadingRoutes.delete('/', ensureAuthenticate, sensorsReadingController.delete);
 
 export default sensorReadingRoutes;
