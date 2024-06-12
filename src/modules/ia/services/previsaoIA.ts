@@ -7,7 +7,7 @@ export class PrevisaoIA {
     public async execute({right, left}: SensorLDR) {
         try {
             const regressionModel = await RegressionModelSingleton.getInstance();
-            return {"resultado": regressionModel.predict([right, left])};
+            return {"resultado": Math.floor(regressionModel.predict([right, left])[0])};
         } catch (err) {
           throw new AppError(`Erro ao tentar acessar o banco\n${err}`, 404);
         }
