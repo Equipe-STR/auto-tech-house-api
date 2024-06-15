@@ -70,18 +70,30 @@ function conexaoESP(parsedMessage:Message, ws: wsType){
     if ('fonte' in parsedMessage) {
         status['fonte'] = parsedMessage['fonte']
     }
-    espalharParaTodosClientes(ws, JSON.stringify(status))
+    espalharParaTodosClientes(ws, JSON.stringify(status));
 }
 
 wss.on('connection', (ws: wsType) => {
     var conectionESP = false
+    let epsTimeout: NodeJS.Timeout | null = null;
     console.log('Cliente conectado via WebSocket');
     ws.on('message', (message: string) => {   
         try {
             const parsedMessage:Message = JSON.parse(message.toString());
             if (parsedMessage['status']=='conexaoESP') {
+                clearTimeout(epsTimeout);
                 conexaoESP(parsedMessage, ws)
                 conectionESP = true
+                epsTimeout = setTimeout(() => {
+                    if (status.espConectado) {
+                        console.log("ESP DESCONECTADO POR TIMEOUT");
+                        status.espConectado = false;
+                        status.alarme=false;
+                        status.incendio = false;
+                        status.fonte = 1;
+                        espalharParaTodosClientes(ws, JSON.stringify(status));
+                    }
+                }, 30000);
             }
             if (parsedMessage['status']=='conexao') {
                 espalharParaTodosClientes(ws, JSON.stringify(status))

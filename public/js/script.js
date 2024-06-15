@@ -10,9 +10,16 @@ function clickSobre(e) {
     document.getElementById("sobre").style.display = "block";
 }
 
+function logout (e){
+    e.preventDefault();
+    localStorage.removeItem('token');
+    window.location.href = 'index.html';
+}
+
 document.getElementById("botao-logo-home").addEventListener("click", clickHome);
 document.getElementById("botao-home").addEventListener("click", clickHome);
 document.getElementById("botao-sobre").addEventListener("click", clickSobre);
+document.getElementById("botao-sair").addEventListener("click", logout);
 
 function addCard(nomeEvento) {
     // Seleciona a tabela

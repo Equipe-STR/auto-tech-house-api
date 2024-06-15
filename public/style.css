@@ -48,6 +48,12 @@ h1{
     color: #04328C;
 }
 
+#botao-sair{
+    background-color: #FD002E;
+    padding-inline: 1rem;
+    padding-block: 0.5rem;
+}
+
 .description-sobre{
     font-size: 2rem;
     color: #04328C;
