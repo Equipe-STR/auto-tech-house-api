@@ -9,8 +9,18 @@ socket.onmessage = (event) => {
     console.log(status)
     configurarFuncionamentoAlarme(status['alarmeFuncionando'])
     configurarFuncionamentoIncendio(status['incendioFuncionando'])
-    configurarAtivacaoSireneAlarme(status['alarme'])
-    configurarAtivacaoSireneIncendio(status['incendio'])
+    if (status['incendioFuncionando']) {
+        configurarAtivacaoSireneIncendio(status['incendio'])
+    }
+    else{
+        configurarAtivacaoSireneIncendio(false)
+    }
+    if (status['alarmeFuncionando']) {
+        configurarAtivacaoSireneAlarme(status['alarme'])
+    }
+    else{
+        configurarAtivacaoSireneAlarme(false)
+    }
     configurarFonte(status['fonte'])
     configurarConexaoESP(status['espConectado'])
 
