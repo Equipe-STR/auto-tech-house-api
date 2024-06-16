@@ -1,8 +1,8 @@
 #include <Arduino_FreeRTOS.h>
 
-// Definições para o controle de luzes e movimento
+// Definições para o controle de luzes
 #define LIGHT 13
-#define SENSOR 2 // Sensor presença principal (cozinha)
+#define SENSOR 2 // Sensor presença principal (Escada)
 #define LED 10
 #define LDR A3
 #define LIGHT2 11 // Sensor presença secundário (Sala)

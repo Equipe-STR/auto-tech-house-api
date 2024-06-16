@@ -24,15 +24,4 @@ void loop() {
     digitalWrite(pinoRele, HIGH);
     digitalWrite(pinoMonitor, HIGH);
   }
-
-  // Monitor the state of the pins
-  int estadoRele = digitalRead(pinoRele);
-  int estadoMonitor = digitalRead(7);
-  Serial.print("Estado do pinoRele: ");
-  Serial.println(estadoRele);
-  Serial.print("Estado do pinoMonitor: ");
-  Serial.println(estadoMonitor);
-
-  // Small delay to make the serial output more readable
-  delay(1000);
 }
