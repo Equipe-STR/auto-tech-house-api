@@ -1,6 +1,7 @@
 # Auto Tech House
 
 Seja Bem Vindo à Auto Tech House. Este é um projeto que permite ao usuário controlar remotamente a sua casa. Na versão física do projeto(em miniatura) estão instaladas diversos sensores. Esses sensores são monitorados por arduinos e EPS32, sendo que o ESP32 é capaz de conectar com internet através do wifi.
+
 Logo, a auto-tech-house-api fornece ao usuário um interface gráfica em html e css que o possibilita receber informações de sua casa, assim como controlá-la remotamente (desativando e ativando
 sensores remotamente).
 
